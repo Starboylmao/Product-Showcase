@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Ecommerce Product UI Swipe Slider</title>
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'><link rel="stylesheet" href="./style.css">
+<style>
+  html,
+		body {
+		  margin: 0;
+		  padding: 0;
+		}
+		
+		h2,
+		p {
+		  margin: 30px 0 0;
+		  padding: 0;
+		}
+		
+		p {
+		  color: #18c495;
+		}
+		
+		.slider {
+		  max-width: 1000px;
+		  width: 90%;
+		  margin: 15px auto;
+		  background: #ffffff;
+		  border-radius: 5px;
+		  padding: 20px 0;
+		  
+		  /*h v b s*/
+		}
+		
+		.slick-slider button {
+		  display: none!important;
+		}
+		
+		.slick-slide {
+		  color: #333;
+		  padding: 40px 0;
+		  font-size: 1.25em;
+		  font-family: "Verdana";
+		  text-align: center;
+		  pointer-events: none;
+		}
+		
+		.slick-slide .desc {
+		  opacity: 0;
+		}
+		
+		.slick-slide .desc > * {
+		  transition: all 900ms ease;
+		}
+		
+		.slick-slide .desc h2 {
+		  position: relative;
+		  left: 50px;
+		  line-height: 1;
+		}
+		
+		.slick-slide .desc p {
+		  position: relative;
+		  top: 50px;
+		  opacity: 0;
+		}
+		
+		.slick-slide img {
+		  width: 100%;
+		}
+		
+		.slick-prev:before,
+		.slick-next:before {
+		  color: black;
+		}
+		
+		.slick-dots {
+		  text-align: center;
+		}
+		
+		.slick-dots li {
+		  display: inline-block;
+		  padding: 1px;
+		  background: #ccc;
+		  margin: 10px 5px;
+		  width: 40px;
+		  height: 5px;
+		}
+		
+		.slick-dots li.slick-active {
+		  background: #18c495;
+		}
+		
+		.slick-dots button {
+		  display: none;
+		}
+		
+		.slick-slide:nth-child(odd) {
+		  /* background: blue;*/
+		}
+		
+		.slick-slide {
+		  opacity: 0.2;
+		  transition: all 300ms ease;
+		}
+		
+		.slick-current {
+		  opacity: 1;
+		  transform: scale(1.1);
+		}
+		
+		.slick-current .desc {
+		  opacity: 1;
+		}
+		
+		.slick-current .desc h2 {
+		  left: 0;
+		}
+		
+		.slick-current .desc p {
+		  top: 0;
+		  opacity: 1;
+		}
+		
+		.btn {
+		  border-radius: 30px;
+		  padding: 10px 20px;
+		  border: 4px solid #18c495;
+		  text-decoration: none;
+		  color: #18c495;
+		  font-size: .6em;
+		  text-transform: uppercase;
+		  display: block;
+		  margin: 30px auto 0;
+		  max-width: 100px;
+		  width: 100%;
+		  font-weight: bold;
+		  pointer-events: initial;
+		}
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<section class="slider">
+  <div>
+	<a href="https://solestockeruk.com/products/yeezy-foam-mx-cinder">
+    <img src="https://cdn.shopify.com/s/files/1/0768/6019/5112/collections/IMG_3882.jpg?v=1708528551">
+	</a>
+    <div class="desc">
+      <h2>Azure</h2>
+      <p>The Azure is a seamless need for your sneaker collection, you need it to complete the look!</p>
+    </div>
+  </div>
+
+  <div>
+	<a href="https://solestockeruk.com/products/air-force-1-supreme-white">
+    <img src="https://cdn.shopify.com/s/files/1/0768/6019/5112/collections/IMG_4473_1.jpg?v=1708528389">
+  </a>
+    <div class="desc">
+      <h2>Bone</h2>
+      <p>The Yeezy Bone is all you need to step out fresh and clean, and stand out from everyone!</p>
+    </div>
+  </div>
+
+  <div>
+    <img src="https://cdn.shopify.com/s/files/1/0768/6019/5112/collections/FF4B3B58-EBAA-4D87-A629-6CE54C35799E.png?v=1708528406">
+    <div class="desc">
+      <h2>Grey Fog</h2>
+      <p>The Grey Fog is an immense well detailed design of a shoe, its fully detailed and just what you need!</p>
+    </div>
+  </div>
+
+  <div>
+    <img src="https://cdn.shopify.com/s/files/1/0768/6019/5112/collections/IMG_4464_1.jpg?v=1708528569">
+    <div class="desc">
+      <h2>Sesame</h2>
+      
+    </div>
+  </div>
+
+ 
+</section>
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script><script  src="./script.js"></script>
+<script>
+  function createSlick(){  
+
+$(".slider").not('.slick-initialized').slick({
+  centerMode: true,
+    autoplay: true,
+    dots: true,
+
+    slidesToShow: 3,
+    responsive: [{ 
+        breakpoint: 768,
+        settings: {
+            dots: false,
+            arrows: false,
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        } 
+    }]
+});	
+
+}
+
+createSlick();
+
+//Will not throw error, even if called multiple times.
+$(window).on( 'resize', createSlick );
+</script>
+</body>
+</html>
